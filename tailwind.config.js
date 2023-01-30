@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ['login.blade.php','register.blade.php'],
   theme: {
     extend: {},
   },
