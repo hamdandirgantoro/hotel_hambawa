@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,38 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/admin_accounts', function () {
-    return view('admin_accounts');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/register', function () {
-    return view('register');
-});
+    return view('home',['title'=>'Home']);
+})->name('home');
+Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'login_action'])->name('login.action');
+Route::get('password', [UserController::class, 'password'])->name('password');
+Route::post('password', [UserController::class, 'password_action'])->name('password.action');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
